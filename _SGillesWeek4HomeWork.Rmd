@@ -1,6 +1,6 @@
 ---
 title: "Homework 04"
-author: "Salomon Gilles"
+author: "Salomon Gilles - Credit to Andrew Abbott for inspiring me"
 date: "May 31, 2016"
 output: html_document
 ---
