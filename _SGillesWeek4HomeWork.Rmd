@@ -1,0 +1,153 @@
+---
+title: "Homework 04"
+author: "Salomon Gilles"
+date: "May 31, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction:
+
+We attempt to illustrate the Central Limit Theorem using R markdown and push it it to GitHub. We use a normal distribution with two different sample sizes and an exponential distribution with two different sample sizes.
+
+### 1: Normal Distribution: samplesize = 150 and simulation = 1100
+```{r}
+n1 <- 150
+nsimulations1 <- 1100
+basepool1 <- rnorm(n1)
+means.array1 <- numeric(nsimulations1)
+for (index in 1:nsimulations1) {
+        tempvar1 <- sample(basepool1, size = length(basepool1), replace = TRUE)
+	means.array1[index] <- mean(tempvar1)
+}
+```
+
+## Original pool1
+
+The median and the mean are very far apart 
+```{r}
+summary(basepool1)
+```
+
+
+We can see that difference in distortions with the severity on either side 
+```{r}
+hist(basepool1)
+```
+## Means array
+
+Notice the median and the mean are approximately equally distributed on the summary table 
+```{r}
+summary(means.array1)
+hist(means.array1)
+```
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+### 2: Normal Distribution: samplesize = 1100 and simulation = 1100
+```{r}
+n2 <- 1100
+nsimulations2 <- 1100
+basepool2 <- rnorm(n2)
+means.array2 <- numeric(nsimulations2)
+for (index in 1:nsimulations2) {
+        tempvar2 <- sample(basepool2, size = length(basepool2), replace = TRUE)
+	means.array2[index] <- mean(tempvar2)
+}
+```
+
+## Original pool2
+
+The median and the mean are even very far apart 
+```{r}
+summary(basepool2)
+```
+
+
+We can see that difference in distortions with the severity on either side 
+```{r}
+hist(basepool2)
+```
+## Means array2
+
+Notice the median and the mean are still approximately closely distributed on the summary table 
+```{r}
+summary(means.array2)
+hist(means.array2)
+```
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+### 3: Exponential Distribution: samplesize = 150 and simulation = 1100
+```{r}
+n3 <- 150
+nsimulations3 <- 1100
+basepool3 <- rexp(n3)
+means.array3 <- numeric(nsimulations3)
+for (index in 1:nsimulations3) {
+        tempvar3 <- sample(basepool3, size = length(basepool3), replace = TRUE)
+	means.array3[index] <- mean(tempvar3)
+}
+```
+
+## Original pool3
+
+The median and the mean are very far apart with only the right skewed
+```{r}
+summary(basepool3)
+```
+
+
+We can see that difference in distortions with the severity only on the right side 
+```{r}
+hist(basepool3)
+```
+## Means array3
+
+Notice the median and the mean are approximately equally distributed on the summary table 
+```{r}
+summary(means.array3)
+hist(means.array3)
+```
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+### 4: Exponential Distribution: samplesize = 1100 and simulation = 1100
+```{r}
+n4 <- 1100
+nsimulations4 <- 1100
+basepool4 <- rexp(n4)
+means.array4 <- numeric(nsimulations4)
+for (index in 1:nsimulations4) {
+        tempvar4 <- sample(basepool4, size = length(basepool4), replace = TRUE)
+	means.array4[index] <- mean(tempvar4)
+}
+```
+
+## Original pool4
+
+The median and the mean are even very far apart with only a right skewed observation 
+```{r}
+summary(basepool4)
+```
+
+
+We can see that difference in distortions with the severity on right side only
+```{r}
+hist(basepool4)
+```
+## Means array4
+
+Notice the median and the mean are evenly distributed on the summary table 
+```{r}
+summary(means.array4)
+hist(means.array4)
+```
+
+# Conclusion:
+
+The illustration of the Central Limit Theorem demonstrates that the median and mean are approximately equal when your sample size is big and when you run large observation.This makes your result reliable. However, you cannot get results when your sample size is fairly small and when you.
+
